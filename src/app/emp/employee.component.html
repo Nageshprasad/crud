@@ -1,0 +1,40 @@
+<table border="5px">
+    <thead>
+        <tr border="4px solid black">
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>DoB</th>
+            <th>Area</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Employee of employeeData">
+            <td>{{Employee.name}}</td>
+            <td>{{Employee.age}}</td>
+            <td>{{Employee.gender}}</td>
+            <td>{{Employee.dob}}</td>
+            <td>{{Employee.area}}</td>
+        </tr><br>
+    </tbody>
+
+</table>
+<form #employeeForm="ngForm" (ngSubmit)="Submit()">
+    Name<input type="text" name="Name" id="name" #name="ngModel" [(ngModel)]="employees.name"><br><br>
+    Age<input type="number" name="Age" id="age" #age="ngModel" [(ngModel)]="employees.age"><br><br>
+    Gender:<br><br>
+    Male:<input type='radio' name="Gen" id="Gen" value="Male" [(ngModel)]="employees.gender" checked>
+    Female:<input type='radio' name="Gen" id="Gen" value="Female"><br><br>
+    DOB:<input type="date" name="DOB" #dob="ngModel" [(ngModel)]="employees.dob"><br><br>
+
+    Area Belongs To:<br>
+    <input type="checkbox" name="prod" [(ngModel)]="employees.area">Production<br>
+    <br><input type="checkbox" name="Store">Store Area<br>
+    <br><input type="checkbox" name="Import">Import<br><br>
+    <input type="button" (click)="save();" value="Submit" id="sub"><br>
+    <input type="reset" value="Reset"><br><br><br>
+    <input type="button" value="Delete" (click)="delete()">
+    Number +91<input type="number" name="Number +91" id="phone" #name="ngModel" [(ngModel)]="emp.PhoneNo">
+    <input type="button" value="WhatsApp To {{emp.Name}}" (click)="WhatsApp()">
+{{emp | json}}
+</form>
